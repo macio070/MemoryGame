@@ -77,6 +77,8 @@ $(document).ready(function () {
     
             // Save the matched class for future comparisons
             storedClass = matchedClass;
+            //TODO
+                //remove cards with the same background
         } else {
             console.log("No background class found.");
         }
