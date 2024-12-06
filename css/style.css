@@ -87,7 +87,7 @@ body {
   }
 }
 @-webkit-keyframes toFront {
-  0%, 80% {
+  0%, 90% {
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
   }
@@ -97,7 +97,7 @@ body {
   }
 }
 @keyframes toFront {
-  0%, 80% {
+  0%, 90% {
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
   }
