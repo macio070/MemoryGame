@@ -8,4 +8,6 @@
 
 	+ if both images are correct delete cards
 
+	+ random layout of cards
+
 	+  #### *difficulty levels based on card amount*
