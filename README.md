@@ -15,7 +15,7 @@
 	
 	+  not allow double-clicking the same image
 	
-	+  not allow clicking while the game starts
+	+  ~~not allow clicking while the game starts~~
 
 - ### CSS
 	+ random layout of cards
