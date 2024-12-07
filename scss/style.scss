@@ -39,7 +39,7 @@ body {
     }
   }
   
-  @keyframes toFront {
+  @keyframes startGame {
     0%, 90% {
       transform: rotateY(180deg);
     }
@@ -47,8 +47,23 @@ body {
       transform: rotateY(0deg);
     }
   }
+  @keyframes toFront {
+    0%, 20%{
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
   
- 
+ @keyframes disappear{
+  0%{
+    filter: opacity(100%);
+  }
+  100%{
+    filter: opacity(0%);
+  }
+ }
 
   
   .front, .back {
