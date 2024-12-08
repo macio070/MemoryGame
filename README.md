@@ -28,9 +28,16 @@
 	
 	+ Add a restart button during/after completing the game
 
+---
+
 # JAVASCRIPT LAYOUT
 
 - [x] Make random sets of images
   +  set a random background (1-8) to two random cards
 - [x] Remove pairs, flip otherwise
 - [x] Animate initialization and flips
+
+---
+
+# KNOWN ISSUES
+- the game glitches when you click on a card while another one is animating

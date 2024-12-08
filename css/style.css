@@ -30,6 +30,30 @@
   background: url(../assets/donut08.jpg) no-repeat center/100%;
 }
 
+.bg09 {
+  background: url(../assets/donut09.webp) no-repeat center/100%;
+}
+
+.bg10 {
+  background: url(../assets/donut10.webp) no-repeat center/100%;
+}
+
+.bg11 {
+  background: url(../assets/donut11.webp) no-repeat center/100%;
+}
+
+.bg12 {
+  background: url(../assets/donut12.webp) no-repeat center/100%;
+}
+
+.bg13 {
+  background: url(../assets/donut13.webp) no-repeat center/100%;
+}
+
+.bg14 {
+  background: url(../assets/donut14.webp) no-repeat center/100%;
+}
+
 .card-container {
   gap: 20px;
   display: grid;
