@@ -26,3 +26,10 @@
   +  set a random background (1-8) to two random cards
 - Remove pairs, flip otherwise
 - Animate initialization and flips
+
+# JAVASCRIPT LAYOUT
+
+- Make random sets of images
+  +  set a random background (1-8) to two random cards
+- Remove pairs, flip otherwise
+- Animate initialization and flips
