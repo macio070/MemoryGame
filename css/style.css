@@ -126,6 +126,30 @@ body {
             transform: rotateY(0deg);
   }
 }
+@-webkit-keyframes disappear {
+  from {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+    visibility: visible;
+  }
+  to {
+    -webkit-filter: opacity(0%);
+            filter: opacity(0%);
+    visibility: hidden;
+  }
+}
+@keyframes disappear {
+  from {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+    visibility: visible;
+  }
+  to {
+    -webkit-filter: opacity(0%);
+            filter: opacity(0%);
+    visibility: hidden;
+  }
+}
 .front, .back {
   position: absolute;
   width: 100%;

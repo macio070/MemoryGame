@@ -56,6 +56,17 @@ body {
     }
   }
 
+  @keyframes disappear{
+    from{
+      filter: opacity(100%);
+      visibility: visible;
+    }
+    to{
+      filter: opacity(0%);
+      visibility: hidden;
+    }
+  }
+
   
   .front, .back {
     position: absolute;

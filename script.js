@@ -58,15 +58,17 @@ $(document).ready(function(){
             console.log("last background: ", lastBackground)
             console.log(`clicks: ${clicks}`)
             if(clicks === 1){
+                //if there is only one card clicked
                 lastBackground = currentBackground;
             }
             else{
                 //check if backgrounds are matching
                 if(currentBackground === lastBackground){
                     console.log(`backgrounds match: ${currentBackground}`);
-                    let selectedElements = document.getElementsByClassName(currentBackground);
+                    let selectedElements = document.getElementsByClassName(currentBackground);  //select all elements with the same bg class
                     for(let i = 0; i < selectedElements.length; i++){
-                        $(selectedElements[i]).parent().parent().css("visibility", "hidden");
+                        //animation for card disappearing
+                        $(selectedElements[i]).parent().parent().css("animation", "disappear 1s forwards");
                         console.log(selectedElements[i]);
                     }
                 }
