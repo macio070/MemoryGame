@@ -65,6 +65,27 @@ body {
           animation-fill-mode: forwards;
 }
 
+@-webkit-keyframes toFront {
+  0%, 20% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes toFront {
+  0%, 20% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
 @-webkit-keyframes toBack {
   0% {
     -webkit-transform: rotateY(0deg);
@@ -75,7 +96,6 @@ body {
             transform: rotateY(180deg);
   }
 }
-
 @keyframes toBack {
   0% {
     -webkit-transform: rotateY(0deg);
@@ -104,46 +124,6 @@ body {
   100% {
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
-  }
-}
-@-webkit-keyframes toFront {
-  0%, 20% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-}
-@keyframes toFront {
-  0%, 20% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-}
-@-webkit-keyframes disappear {
-  0% {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
-  }
-  100% {
-    -webkit-filter: opacity(0%);
-            filter: opacity(0%);
-  }
-}
-@keyframes disappear {
-  0% {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
-  }
-  100% {
-    -webkit-filter: opacity(0%);
-            filter: opacity(0%);
   }
 }
 .front, .back {
