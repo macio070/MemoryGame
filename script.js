@@ -1,113 +1,81 @@
-$(document).ready(function () {
-
-    //set-up for difficulty levels (instead of 16 it's a variable 
-    //that checks how many cards are in a container)
+$(document).ready(function(){
+    //amount of cards
     const cards = $(".card-container").children().length;
-
-    /* ANIMATIONS */
-    $(".card, .card-inner").css("animation", "startGame 5s forwards")
-    $(".card").click(function () {
-        $(this).find(".card-inner").css("animation", "toBack .6s forwards");
-    });
-    /* -END- ANIMATIONS */
-
-
-    /* RANDOM CARDS PLACEMENT */
-    // Array to store used card indices to avoid duplicates
     const usedCards = new Set();
-
-    // Function to generate a unique random number between 0 and 15
-    function generateUniqueCardIndex() {
+    function randomIndex(){
         let rand;
-        do {
+        do{
             rand = Math.floor(Math.random() * cards);
-        } while (usedCards.has(rand));
+        } while(usedCards.has(rand));
         usedCards.add(rand);
         return rand;
     }
-
-    // Function to assign backgrounds to random pairs of cards
-    function setupGame() {
-        const totalPairs = cards / 2;
-
-        for (let i = 1; i <= totalPairs; i++) {
-            // Select two unique cards
-            const cardIndex1 = generateUniqueCardIndex();
-            const cardIndex2 = generateUniqueCardIndex();
-
-            // Assign the same background to the back of both cards
-            const backgroundClass = `bg0${i}`;
-            $(`.card:eq(${cardIndex1}) .back`).addClass(backgroundClass);
-            $(`.card:eq(${cardIndex2}) .back`).addClass(backgroundClass);
+//STEP 1. Make random sets of images
+    function setupGame(){
+        const totalPairs = cards/2;
+        for(let i = 1; i<=totalPairs; i++){
+            //generate a pair of the same cards
+            const cardIndex1 = randomIndex();
+            const cardIndex2 = randomIndex();
+            let backgroundClass;
+            //generate a background class for said cards
+            if(i < 10){
+                backgroundClass = (`bg0${i}`);
+            }
+            else{   //future-proofing when there are more than 8 backgrounds
+                backgroundClass = (`bg${i}`)
+            }
+// ! TEMP FIX ->>> CHANGE TO .back
+            $(`.card:eq(${cardIndex1}) .front`).addClass(backgroundClass);
+            $(`.card:eq(${cardIndex2}) .front`).addClass(backgroundClass);
         }
     }
-    /* -END- RANDOM CARDS PLACEMENT */
 
-    // Initialize the game
     setupGame();
-    $(".card").css("pointer-events", "none");
-    setTimeout(() => {
-        $(".card").css("pointer-events", "auto");
-    }, 5000); 
-    
-    /* REMOVING CARDS */
-    let storedClass = null; // Store the class of the first clicked card
-    let firstElement = null; // Store the first clicked card
-    let isAnimating = false; // To prevent clicking during animations
 
-    $(".card").click(function () {
-        if (isAnimating || $(this).hasClass("matched")) return; // Prevent clicking during animation or on already matched cards
+//STEP 2. Remove pairs, flip otherwise
 
-        let matchedClass = null;
-        let $back = $(this).find(".back"); // Find the .back element inside the clicked .card
-        let classes = $back.attr("class").split(" "); // Get all the classes of the back element
+    //each pair has the same bg
+    //if bg doesn't match flip back
 
-        // Loop through the classes and check for any class starting with "bg"
-        for (let cls of classes) {
-            if (cls.startsWith("bg")) {
-                matchedClass = cls; // Store the matched background class
-                break; // Exit loop once a match is found
+    let lastBackground = null;
+    let clicks = 1;
+    $(".card").click(function(){
+        let currentBackground;
+
+        let $back = $(this).find(".front");
+        let classes = $back.attr("class").split(" ");
+        console.log(classes);
+        for(cls of classes){
+            if(cls.startsWith("bg")){
+                currentBackground = cls;
+                break;
             }
         }
+        console.log(currentBackground);
 
-        if (matchedClass) {
-            console.log(`Matched class: ${matchedClass}`);
-
-            // Flip the clicked card
-            $(this).find(".card-inner").css("animation", "toBack 0.6s forwards");
-
-            // Compare with storedClass
-            if (storedClass) {
-                isAnimating = true; // Prevent further clicks during comparison
-
-                if (storedClass === matchedClass) {
-                    console.log("The classes match!");
-
-                    // Add a "matched" class to both cards to prevent future interaction
-                    setTimeout(() => {
-                        $(this).addClass("matched").css("visibility", "hidden");
-                        firstElement.addClass("matched").css("visibility", "hidden");
-                        isAnimating = false; // Re-enable clicking
-                    }, 1000); // Match animation duration
-                } else {
-                    console.log("The classes don't match.");
-
-                    // Flip both cards back after a delay
-                    setTimeout(() => {
-                        $(this).find(".card-inner").css("animation", "toFront 0.6s forwards");
-                        firstElement.find(".card-inner").css("animation", "toFront 0.6s forwards");
-                        isAnimating = false; // Re-enable clicking
-                    }, 1000); // Flip-back animation duration
+        if(clicks <= 2){
+            console.log("last background: ", lastBackground)
+            console.log(`clicks: ${clicks}`)
+            if(clicks === 1){
+                lastBackground = currentBackground;
+            }
+            else{
+                //check if backgrounds are matching
+                if(currentBackground === lastBackground){
+                    console.log(`backgrounds match: ${currentBackground}`);
+                    let selectedElements = document.getElementsByClassName(currentBackground);
+                    for(let i = 0; i < selectedElements.length; i++){
+                        $(selectedElements[i]).parent().parent().css("visibility", "hidden");
+                        console.log(selectedElements[i]);
+                    }
                 }
-
-                // Reset for the next pair
-                storedClass = null;
-                firstElement = null;
-            } else {
-                // Save the matched class and element for the next click
-                storedClass = matchedClass;
-                firstElement = $(this);
+                currentBackground = null;
+                lastBackground = null;
+                clicks = 0;
+                
             }
         }
-    });
+        clicks++
+    })
 });
