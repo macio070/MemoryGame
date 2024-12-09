@@ -103,6 +103,11 @@ $(document).ready(function () {
                     for(let element of selectedElements){
                         $(element).removeClass("selected");
                     }
+                    let all = $("body").find(".selected");
+                    for(let item of all){
+                        $(item).removeClass("selected");
+                    }
+                    console.log(all);
                     currentBackground = null;
                     lastBackground = null;
                     clicks = 0;
