@@ -98,13 +98,19 @@ $(document).ready(function () {
                         }
                     }
                     //resetting after 2 clicks
+                    let selectedElements = document.getElementsByClassName("selected");
+                    console.log("total selected: ",selectedElements.length);
+                    for(let element of selectedElements){
+                        $(element).removeClass("selected");
+                    }
+                    let all = $("body").find(".selected");
+                    for(let item of all){
+                        $(item).removeClass("selected");
+                    }
+                    console.log(all);
                     currentBackground = null;
                     lastBackground = null;
                     clicks = 0;
-                    let selectedElements = document.getElementsByClassName("selected");
-                    for (let element of selectedElements) {
-                        $(element).removeClass("selected");
-                    }
 
                 }
             }
