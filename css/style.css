@@ -62,6 +62,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   max-width: 100%;
+  max-height: 100vh;
+  display: none;
 }
 
 body {
@@ -192,4 +194,14 @@ body {
   color: white;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .card-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }

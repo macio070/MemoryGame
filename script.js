@@ -1,5 +1,12 @@
 $(document).ready(function () {
-    const cards = $(".card-container").children().length; //get the card amount
+
+    $("#difficultybtn").click(function(){
+        let difficulty = document.getElementById("difficulty");
+    const cards = difficulty.options[difficulty.selectedIndex].value;
+    console.log(cards);
+    });
+
+    //const cards = $(".card-container").children().length; //get the card amount
 
     const usedCards = new Set();
     function randomIndex() {
