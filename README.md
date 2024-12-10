@@ -40,4 +40,4 @@
 ---
 
 # KNOWN ISSUES
-- the game glitches when you click on a card while another one is animating
+- ~~the game glitches when you click on a card while another one is animating~~
