@@ -142,9 +142,9 @@ input[type="radio"]:checked+label {
 
 //end difficulty
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
 
-  //992px is tablet width
+  //1024px is laptop width
   .card-container {
     display: flex;
     flex-wrap: wrap;

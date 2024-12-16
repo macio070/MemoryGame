@@ -23,11 +23,11 @@
 }
 
 .bg07 {
-  background: url(../assets/donut07.jpg) no-repeat center/100%;
+  background: url(../assets/donut07.webp) no-repeat center/100%;
 }
 
 .bg08 {
-  background: url(../assets/donut08.jpg) no-repeat center/100%;
+  background: url(../assets/donut08.webp) no-repeat center/100%;
 }
 
 .bg09 {
@@ -247,7 +247,7 @@ input[type=radio]:checked + label {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
   .card-container {
     display: -webkit-box;
     display: -ms-flexbox;
