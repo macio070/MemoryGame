@@ -17,6 +17,10 @@ $(document).ready(function () {
             $(".card").css("pointer-events", "auto");
         }, 5000);
     })
+    $(".restart").click(function(){
+        location.reload();
+    })
+
 
     const usedCards = new Set();
     function randomIndex() {
@@ -34,6 +38,7 @@ $(document).ready(function () {
         }
         const totalPairs = cards / 2;
         $(".card-container").css("visibility", "visible");
+        $(".restart").css("visibility", "visible");
         console.log(totalPairs);
         for (let i = 1; i <= totalPairs; i++) {
             //generate a pair of the same cards

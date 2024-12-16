@@ -13,19 +13,19 @@
 
 <body>
     <div id="difficulty">
-        <label id="label" for="difficulty">DIFFICULTY</label>
+        <label id="label" for="difficulty">CHOOSE DIFFICULTY</label>
 
-        <div>
+        <div class="easy">
             <input type="radio" name="difficulty" value="12" id="easy">
             <label for="easy">EASY (12 cards)</label>
         </div>
 
-        <div>
+        <div class="medium">
             <input type="radio" name="difficulty" value="16" id="medium">
             <label for="medium">MEDIUM (16 cards)</label>
         </div>
 
-        <div>
+        <div class="hard">
             <input type="radio" name="difficulty" value="20" id="hard">
             <label for="hard">HARD (20 cards)</label>
         </div>
@@ -33,7 +33,9 @@
         <button for="difficulty" id="btn" type="submit">START</button>
     </div>
 
-
+        <div class="restart">
+            <button id="btn">RESTART</button>
+        </div>
 
     <div class="card-container">
         <div class="card">

@@ -1,6 +1,8 @@
 @import "variables";
 @import "backgrounds";
 
+
+
 .card-container {
   gap: 20px;
   display: grid;
@@ -99,36 +101,50 @@ body {
 
 
 // difficulty
+.easy{color: $easy;}
+.medium{color:$medium;}
+.hard{color:$hard;}
 #difficulty {
+  position: absolute;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
   user-select: none;
+  text-shadow: 1px 2px 5px rgb(0 0 0 / 46%);
+  -webkit-text-stroke: 0.01em black;
 }
 
 #difficulty>* {
-  font-size: 24px;
+  font-size: 3em;
+
 }
+#difficulty input{
+  position: absolute;
+  opacity: 0;
 
-label {
-
+}
+label{
+  cursor: pointer;
+}
+input[type="radio"]:checked+label {
+  text-decoration: underline;
+  font-weight: bold;
   cursor: pointer;
 }
 
-input[type="radio"]:checked+label {
-  font-weight: bold;
-}
-
 #label {
-  font-size: 64px;
+  font-size: 5em;
   font-weight: 100;
 }
 
 #btn {
+  width: 125px;
+  height: 75px;
   margin-top: 20px;
-  background-color: purple;
+  background-color: $primary;
   border-radius: 5px;
   font-weight: bold;
   font-size: 18px;
@@ -142,6 +158,12 @@ input[type="radio"]:checked+label {
 
 //end difficulty
 
+.restart{
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+
 @media only screen and (max-width: 1024px) {
 
   //1024px is laptop width
@@ -149,5 +171,16 @@ input[type="radio"]:checked+label {
     display: flex;
     flex-wrap: wrap;
 
+  }
+}
+@media only screen and (max-width: 1200px){
+  .restart{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  #restartbtn{
+    display: inline;
   }
 }

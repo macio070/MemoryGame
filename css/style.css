@@ -195,7 +195,21 @@ body {
           transform: rotateY(180deg);
 }
 
+.easy {
+  color: rgb(45, 231, 85);
+}
+
+.medium {
+  color: rgb(220, 213, 10);
+}
+
+.hard {
+  color: rgb(225, 60, 60);
+}
+
 #difficulty {
+  position: absolute;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -214,10 +228,17 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.46);
+  -webkit-text-stroke: 0.01em black;
 }
 
 #difficulty > * {
-  font-size: 24px;
+  font-size: 3em;
+}
+
+#difficulty input {
+  position: absolute;
+  opacity: 0;
 }
 
 label {
@@ -225,17 +246,21 @@ label {
 }
 
 input[type=radio]:checked + label {
+  text-decoration: underline;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #label {
-  font-size: 64px;
+  font-size: 5em;
   font-weight: 100;
 }
 
 #btn {
+  width: 125px;
+  height: 75px;
   margin-top: 20px;
-  background-color: purple;
+  background-color: #0d6efd;
   border-radius: 5px;
   font-weight: bold;
   font-size: 18px;
@@ -247,6 +272,12 @@ input[type=radio]:checked + label {
   cursor: pointer;
 }
 
+.restart {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+
 @media only screen and (max-width: 1024px) {
   .card-container {
     display: -webkit-box;
@@ -254,5 +285,20 @@ input[type=radio]:checked + label {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .restart {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 10px;
+  }
+  #restartbtn {
+    display: inline;
   }
 }
