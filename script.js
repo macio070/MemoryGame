@@ -1,18 +1,21 @@
 $(document).ready(function () {
-     const cards = $(".card-container").children().length; //get the card amount
-    const btn = document.querySelector('#btn');        
-        const radioButtons = document.querySelectorAll('input[name="difficulty"]');
-        btn.addEventListener("click", () => {
-            let selectedDifficulty;
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedDifficulty = radioButton.value;
-                    break;
-                }
-            }
-            const difficulty = selectedDifficulty;
-        });
+    //const cards = $(".card-container").children().length; //get the card amount
 
+    function selectedDifficulty() {
+        cards = document.querySelector('input[name="difficulty"]:checked').value;
+        return cards;
+    }
+    $("#btn").click(function () {
+        $("#difficulty").css("display", "none");
+        const cards = selectedDifficulty();
+        console.log(cards);
+        setupGame();
+        $(".card").css("pointer-events", "none");
+        //turns off clicking for the duration of the start animation
+        setTimeout(() => {
+            $(".card").css("pointer-events", "auto");
+        }, 5000);
+    })
 
     const usedCards = new Set();
     function randomIndex() {
@@ -26,6 +29,8 @@ $(document).ready(function () {
     //STEP 1. Make random sets of images
     function setupGame() {
         const totalPairs = cards / 2;
+        $(".card-container").css("display", "grid");
+        console.log(totalPairs);
         for (let i = 1; i <= totalPairs; i++) {
             //generate a pair of the same cards
             const cardIndex1 = randomIndex();
@@ -42,17 +47,21 @@ $(document).ready(function () {
             $(`.card:eq(${cardIndex1}) .back`).addClass(backgroundClass);
             $(`.card:eq(${cardIndex2}) .back`).addClass(backgroundClass);
 
+
             /* START ANIMATION */
-            $(".card, .card-inner").css("animation", "startGame 5s forwards")
+            $(".card, .card-inner").css("animation", "startGame 5s forwards");
+        }
+        let totalCards = document.getElementsByClassName("card");
+        for(let i = 0; i < cards; i++){
+            $(totalCards[i]).addClass(`card-${i+1}`);
+        }
+        for(let i = 0; i < 20; i++){
+            if($(totalCards[i]).hasClass(`card-${i+1}`));
+            else{
+                $(totalCards[i]).css("visibility", "hidden");
+            }
         }
     }
-
-    setupGame();
-    $(".card").css("pointer-events", "none");
-    //turns off clicking for the duration of the start animation
-    setTimeout(() => {
-        $(".card").css("pointer-events", "auto");
-    }, 5000);
 
     //STEP 2. Remove pairs, flip otherwise
 
@@ -112,12 +121,12 @@ $(document).ready(function () {
                     }
                     //resetting after 2 clicks
                     let selectedElements = document.getElementsByClassName("selected");
-                    console.log("total selected: ",selectedElements.length);
-                    for(let element of selectedElements){
+                    console.log("total selected: ", selectedElements.length);
+                    for (let element of selectedElements) {
                         $(element).removeClass("selected");
                     }
                     let all = $("body").find(".selected");
-                    for(let item of all){
+                    for (let item of all) {
                         $(item).removeClass("selected");
                     }
                     console.log(all);
