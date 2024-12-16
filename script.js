@@ -2,7 +2,8 @@ $(document).ready(function () {
     //const cards = $(".card-container").children().length; //get the card amount
 
     function selectedDifficulty() {
-        cards = document.querySelector('input[name="difficulty"]:checked').value;
+        if (!document.querySelector('input[name="difficulty"]:checked')) cards = 16; // when nothing is selected
+        else cards = document.querySelector('input[name="difficulty"]:checked').value;
         return cards;
     }
     $("#btn").click(function () {
@@ -28,8 +29,11 @@ $(document).ready(function () {
     }
     //STEP 1. Make random sets of images
     function setupGame() {
+        if (cards == 20) {
+            $(".card-container").css("grid-template-columns", "auto auto auto auto auto");
+        }
         const totalPairs = cards / 2;
-        $(".card-container").css("display", "grid");
+        $(".card-container").css("visibility", "visible");
         console.log(totalPairs);
         for (let i = 1; i <= totalPairs; i++) {
             //generate a pair of the same cards
@@ -52,13 +56,13 @@ $(document).ready(function () {
             $(".card, .card-inner").css("animation", "startGame 5s forwards");
         }
         let totalCards = document.getElementsByClassName("card");
-        for(let i = 0; i < cards; i++){
-            $(totalCards[i]).addClass(`card-${i+1}`);
+        for (let i = 0; i < cards; i++) {
+            $(totalCards[i]).addClass(`card-${i + 1}`);
         }
-        for(let i = 0; i < 20; i++){
-            if($(totalCards[i]).hasClass(`card-${i+1}`));
-            else{
-                $(totalCards[i]).css("visibility", "hidden");
+        for (let i = 0; i < 20; i++) {
+            if ($(totalCards[i]).hasClass(`card-${i + 1}`));
+            else {
+                $(totalCards[i]).css("display", "none");
             }
         }
     }
@@ -105,6 +109,7 @@ $(document).ready(function () {
                             //TIMEOUT FOR FLIPPING ANIMATION TO FINISH (.5s)
                             setTimeout(() => {
                                 $(element).parent().parent().css("animation", "disappear .6s forwards");
+                                $(element).parent().parent().addClass("guessed");
                             }, 500);
                             console.log(element);
                         }

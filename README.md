@@ -10,8 +10,8 @@
 
 	+ ~~if images not correct flip back~~
 
-	+  #### *difficulty levels based on card amount*  **->>> IN DEVELOPMENT <<<-**
-      	+  add a diff option/button that will run initializeGame func onclick
+	+  ~~#### *difficulty levels based on card amount*~~
+      	+  ~~add a diff option/button that will run initializeGame func onclick~~
 	
 	+  ~~not allow double-clicking the same image~~
 	
@@ -20,10 +20,10 @@
 - ### CSS
 	+ random layout of cards
 	
-	+ change layout based on difficulty
+	+ ~~change layout based on difficulty~~
 
 - ### MECHANICS
-	+ Add a score function that will keep track of your score
+	+ Add a score function that will keep track of your score  **->>> IN DEVELOPMENT <<<-**
     	+ account for difficulty
 	
 	+ Add a restart button during/after completing the game

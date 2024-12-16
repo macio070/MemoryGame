@@ -1,108 +1,153 @@
 @import "variables";
 @import "backgrounds";
 
-.card-container{
-    gap: 20px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: center;
-    max-width: 100%;
-    max-height: 100vh;
-    display: none;
+.card-container {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  visibility: hidden;
 }
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .card {
-    background-color: transparent;
-    width: 200px;
-    height: 200px;
-    perspective: 1000px;
-  }
-  
-  .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    animation-fill-mode: forwards;
-  }
-  @keyframes toFront {
-    0%, 20%{
-      transform: rotateY(180deg);
-    }
-    100% {
-      transform: rotateY(0deg);
-    }
-  }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  @keyframes toBack {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(180deg);
-    }
-  }
+.card {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+}
 
-  @keyframes startGame {
-    0%, 90% {
-      transform: rotateY(180deg);
-    }
-    100% {
-      transform: rotateY(0deg);
-    }
-  }
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  animation-fill-mode: forwards;
+}
 
-  @keyframes disappear{
-    from{
-      filter: opacity(100%);
-      visibility: visible;
-    }
-    to{
-      filter: opacity(0%);
-      visibility: hidden;
-    }
-  }
+@keyframes toFront {
 
-  
-  .front, .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .front {
-    background-color: #cf4949;
-    color: black;
-  }
-  
-  .back {
-    background-color: #29b94d;
-    color: white;
+  0%,
+  20% {
     transform: rotateY(180deg);
   }
 
-  @media only screen and (max-width: 768px){
-    .card-container{
-      display: flex;
-      flex-wrap: wrap;
-
-    }
+  100% {
+    transform: rotateY(0deg);
   }
-  #btn{
-    background-color: purple;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: monospace;
-    color: white;
-    padding: 20px;
-    margin-left: 10px;
-    text-align: center;
-    cursor: pointer;
+}
+
+@keyframes toBack {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes startGame {
+
+  0%,
+  90% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes disappear {
+  from {
+    filter: opacity(100%);
+    visibility: visible;
+  }
+
+  to {
+    filter: opacity(0%);
+    visibility: hidden;
+  }
+}
+
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-color: #cf4949;
+  color: black;
+}
+
+.back {
+  background-color: #29b94d;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+
+// difficulty
+#difficulty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+#difficulty>* {
+  font-size: 24px;
+}
+
+label {
+
+  cursor: pointer;
+}
+
+input[type="radio"]:checked+label {
+  font-weight: bold;
+}
+
+#label {
+  font-size: 64px;
+  font-weight: 100;
+}
+
+#btn {
+  margin-top: 20px;
+  background-color: purple;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: monospace;
+  color: white;
+  padding: 20px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+//end difficulty
+
+@media only screen and (max-width: 992px) {
+
+  //992px is tablet width
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
 }
