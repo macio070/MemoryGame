@@ -1,12 +1,18 @@
 $(document).ready(function () {
+     const cards = $(".card-container").children().length; //get the card amount
+    const btn = document.querySelector('#btn');        
+        const radioButtons = document.querySelectorAll('input[name="difficulty"]');
+        btn.addEventListener("click", () => {
+            let selectedDifficulty;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedDifficulty = radioButton.value;
+                    break;
+                }
+            }
+            const difficulty = selectedDifficulty;
+        });
 
-    $("#difficultybtn").click(function(){
-        let difficulty = document.getElementById("difficulty");
-    const cards = difficulty.options[difficulty.selectedIndex].value;
-    console.log(cards);
-    });
-
-    //const cards = $(".card-container").children().length; //get the card amount
 
     const usedCards = new Set();
     function randomIndex() {

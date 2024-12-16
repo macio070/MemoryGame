@@ -56,14 +56,15 @@
 
 .card-container {
   gap: 20px;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   max-width: 100%;
   max-height: 100vh;
-  display: none;
 }
 
 body {
@@ -112,6 +113,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 @-webkit-keyframes toBack {
   0% {
     -webkit-transform: rotateY(0deg);
@@ -122,6 +124,7 @@ body {
             transform: rotateY(180deg);
   }
 }
+
 @keyframes toBack {
   0% {
     -webkit-transform: rotateY(0deg);
@@ -132,6 +135,7 @@ body {
             transform: rotateY(180deg);
   }
 }
+
 @-webkit-keyframes startGame {
   0%, 90% {
     -webkit-transform: rotateY(180deg);
@@ -142,6 +146,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 @keyframes startGame {
   0%, 90% {
     -webkit-transform: rotateY(180deg);
@@ -152,6 +157,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 @-webkit-keyframes disappear {
   from {
     -webkit-filter: opacity(100%);
@@ -164,6 +170,7 @@ body {
     visibility: hidden;
   }
 }
+
 @keyframes disappear {
   from {
     -webkit-filter: opacity(100%);
@@ -176,6 +183,7 @@ body {
     visibility: hidden;
   }
 }
+
 .front, .back {
   position: absolute;
   width: 100%;
