@@ -11,11 +11,11 @@ $(document).ready(function () {
         const cards = selectedDifficulty();
         console.log(cards);
         setupGame();
-        $(".card").css("pointer-events", "none");
-        //turns off clicking for the duration of the start animation
-        setTimeout(() => {
-            $(".card").css("pointer-events", "auto");
-        }, 5000);
+        // $(".card").css("pointer-events", "none");
+        // turns off clicking for the duration of the start animation
+        // setTimeout(() => {
+        //     $(".card").css("pointer-events", "auto");
+        // }, 5000);
     })
     $(".restart").click(function(){
         location.reload();
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
 
             /* START ANIMATION */
-            $(".card, .card-inner").css("animation", "startGame 5s forwards");
+            //$(".card, .card-inner").css("animation", "startGame 5s forwards");
         }
         let totalCards = document.getElementsByClassName("card");
         for (let i = 0; i < cards; i++) {
