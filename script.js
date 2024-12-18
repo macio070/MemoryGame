@@ -149,4 +149,15 @@ $(document).ready(function () {
             clicks++
         }
     })
+
+    //STEP 3: FINISHING THE GAME
+    //each guessed card has a class "guessed"
+    
+    setInterval(() => {
+    let cardsLeft = cards - document.getElementsByClassName("guessed").length;
+    if(cardsLeft == 0){
+        $(".card-container").css("display", "none");
+        $(".victory").css("visibility", "visible");
+    }
+    }, 1000);
 });
