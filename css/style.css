@@ -304,7 +304,7 @@ input[type=radio]:checked + label {
         flex-wrap: wrap;
   }
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   .restart {
     position: relative;
     display: -webkit-box;

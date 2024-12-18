@@ -26,7 +26,9 @@
 	+ Add a score function that will keep track of your score  **->>> IN DEVELOPMENT <<<-**
     	+ account for difficulty
 	
-	+ Add a restart button during/after completing the game
+	+ ~~Add a restart button during/after completing the game~~
+
+	+ Add checkboxes in the difficulty options to enable speedrun mode
 
 ---
 
