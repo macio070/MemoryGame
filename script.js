@@ -9,7 +9,6 @@ $(document).ready(function () {
     $("#btn").click(function () {
         $("#difficulty").css("display", "none");
         const cards = selectedDifficulty();
-        console.log(cards);
         setupGame();
         // $(".card").css("pointer-events", "none");
         // turns off clicking for the duration of the start animation
@@ -39,7 +38,6 @@ $(document).ready(function () {
         const totalPairs = cards / 2;
         $(".card-container").css("visibility", "visible");
         $(".restart").css("visibility", "visible");
-        console.log(totalPairs);
         for (let i = 1; i <= totalPairs; i++) {
             //generate a pair of the same cards
             const cardIndex1 = randomIndex();
@@ -88,18 +86,14 @@ $(document).ready(function () {
             let currentBackground;
             let $back = $(this).find(".back");  //get current clicked element
             let classes = $back.attr("class").split(" ");   //store all its classes in an array
-            console.log(classes);
             for (cls of classes) {    //go through all classes
                 if (cls.startsWith("bg")) {   //if one of them contains the bg class
                     currentBackground = cls;    //it becomes the currentBackground
                     break;
                 }
             }
-            console.log(currentBackground);
 
             if (clicks <= 2) {
-                console.log("last background: ", lastBackground)
-                console.log(`clicks: ${clicks}`)
                 if (clicks === 1) {
                     //if there is only one card clicked
                     lastBackground = currentBackground;
@@ -107,7 +101,6 @@ $(document).ready(function () {
                 else {
                     //check if backgrounds are matching
                     if (currentBackground === lastBackground) {
-                        console.log(`backgrounds match: ${currentBackground}`);
                         let selectedElements = document.getElementsByClassName(currentBackground);  //select all elements with the same bg class
                         for (let element of selectedElements) {
                             //animation for card disappearing
@@ -116,7 +109,6 @@ $(document).ready(function () {
                                 $(element).parent().parent().css("animation", "disappear .6s forwards");
                                 $(element).parent().parent().addClass("guessed");
                             }, 500);
-                            console.log(element);
                         }
                     }
                     //backgrounds do not match
@@ -131,7 +123,6 @@ $(document).ready(function () {
                     }
                     //resetting after 2 clicks
                     let selectedElements = document.getElementsByClassName("selected");
-                    console.log("total selected: ", selectedElements.length);
                     for (let element of selectedElements) {
                         $(element).removeClass("selected");
                     }
@@ -139,7 +130,6 @@ $(document).ready(function () {
                     for (let item of all) {
                         $(item).removeClass("selected");
                     }
-                    console.log(all);
                     currentBackground = null;
                     lastBackground = null;
                     clicks = 0;
