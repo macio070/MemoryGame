@@ -115,7 +115,7 @@ $(document).ready(function () {
                                 $(element).parent().parent().addClass("guessed");
                             }, 500);
                         }
-                        score+=Math.round(0.25*cards);
+                        score += Math.round(0.25 * cards);
 
                         $(".score-number").text(`SCORE: ${score}`);
                     }
