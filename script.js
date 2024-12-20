@@ -17,9 +17,14 @@ $(document).ready(function () {
             $(".card").css("pointer-events", "auto");
         }, 5000);
     })
-    $(".restart").click(function(){
+
+    $("#restart-btn").click(function () {
         location.reload();
     })
+
+    //SCORE
+    let score = 0;
+
 
 
     const usedCards = new Set();
@@ -118,6 +123,9 @@ $(document).ready(function () {
                             }, 500);
                             console.log(element);
                         }
+                        score+=Math.round(0.25*cards);
+
+                        $(".score-number").text(`SCORE: ${score}`);
                     }
                     //backgrounds do not match
                     else {
@@ -149,4 +157,21 @@ $(document).ready(function () {
             clicks++
         }
     })
+
+    //STEP 3: FINISHING THE GAME
+    //each guessed card has a class "guessed"
+
+    setInterval(() => {
+        let cardsLeft = cards - document.getElementsByClassName("guessed").length;
+        if (cardsLeft == 0) {
+            setTimeout(() => {
+                $(".card-container").css("display", "none");
+                $(".victory").css("visibility", "visible");
+            }, 500);
+        }
+    }, 1000);
+
+
+
+
 });

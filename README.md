@@ -23,10 +23,14 @@
 	+ ~~change layout based on difficulty~~
 
 - ### MECHANICS
-	+ Add a score function that will keep track of your score  **->>> IN DEVELOPMENT <<<-**
-    	+ account for difficulty
+	+ ~~Add a score function that will keep track of your score~~
+    	+ ~~account for difficulty~~
 	
-	+ Add a restart button during/after completing the game
+	+ ~~Add a restart button during/after completing the game~~
+
+	+ Add checkboxes in the difficulty options to enable speedrun mode **->>> IN DEVELOPMENT <<<-**
+
+	+ Add a max tries mode, ex. 10 tries, check how many cards has the user found with this many tries **->>> IN DEVELOPMENT <<<-**
 
 ---
 
