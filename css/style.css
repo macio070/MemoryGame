@@ -174,6 +174,30 @@ body {
     visibility: hidden;
   }
 }
+@-webkit-keyframes appear {
+  from {
+    -webkit-filter: opacity(0%);
+            filter: opacity(0%);
+    visibility: hidden;
+  }
+  to {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+    visibility: visible;
+  }
+}
+@keyframes appear {
+  from {
+    -webkit-filter: opacity(0%);
+            filter: opacity(0%);
+    visibility: hidden;
+  }
+  to {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+    visibility: visible;
+  }
+}
 .front,
 .back {
   position: absolute;
@@ -197,14 +221,41 @@ body {
 
 .easy {
   color: rgb(45, 231, 85);
+  -webkit-transition: -webkit-filter 200ms;
+  transition: -webkit-filter 200ms;
+  transition: filter 200ms;
+  transition: filter 200ms, -webkit-filter 200ms;
 }
 
 .medium {
   color: rgb(220, 213, 10);
+  -webkit-transition: -webkit-filter 200ms;
+  transition: -webkit-filter 200ms;
+  transition: filter 200ms;
+  transition: filter 200ms, -webkit-filter 200ms;
 }
 
 .hard {
   color: rgb(225, 60, 60);
+  -webkit-transition: -webkit-filter 200ms;
+  transition: -webkit-filter 200ms;
+  transition: filter 200ms;
+  transition: filter 200ms, -webkit-filter 200ms;
+}
+
+.easy:hover {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
+}
+
+.medium:hover {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
+}
+
+.hard:hover {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
 }
 
 #difficulty {
@@ -232,7 +283,7 @@ body {
   -webkit-text-stroke: 0.01em black;
 }
 
-#difficulty > * {
+#difficulty > *:not(button) {
   font-size: 3em;
 }
 
@@ -249,6 +300,7 @@ input[type=radio]:checked + label {
   text-decoration: underline;
   font-weight: bold;
   cursor: pointer;
+  opacity: 1;
 }
 
 #label {
@@ -256,26 +308,48 @@ input[type=radio]:checked + label {
   font-weight: 100;
 }
 
-#btn {
+.btn {
   width: 125px;
   height: 75px;
   margin-top: 20px;
   background-color: #0d6efd;
   border-radius: 5px;
-  font-weight: bold;
-  font-size: 18px;
-  font-family: monospace;
-  color: white;
   padding: 20px;
   margin-left: 10px;
-  text-align: center;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: monospace;
+  color: white;
+  text-align: center;
 }
 
 .restart {
   position: absolute;
   top: 0;
   visibility: hidden;
+  z-index: 2;
+}
+
+.victory {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  visibility: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .victory {
