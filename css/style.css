@@ -58,9 +58,7 @@
   gap: 20px;
   display: grid;
   grid-template-columns: auto auto auto auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   visibility: hidden;
 }
 
@@ -72,8 +70,7 @@ body {
   background-color: transparent;
   width: 200px;
   height: 200px;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  perspective: 1000px;
 }
 
 .card-inner {
@@ -81,120 +78,52 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes toFront {
-  0%, 20% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  animation-fill-mode: forwards;
 }
 
 @keyframes toFront {
   0%, 20% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
   100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-}
-@-webkit-keyframes toBack {
-  0% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-  100% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(0deg);
   }
 }
 @keyframes toBack {
   0% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   100% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-}
-@-webkit-keyframes startGame {
-  0%, 90% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
+    transform: rotateY(180deg);
   }
 }
 @keyframes startGame {
   0%, 90% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
   100% {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-}
-@-webkit-keyframes disappear {
-  from {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
-    visibility: visible;
-  }
-  to {
-    -webkit-filter: opacity(0%);
-            filter: opacity(0%);
-    visibility: hidden;
+    transform: rotateY(0deg);
   }
 }
 @keyframes disappear {
   from {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
+    filter: opacity(100%);
     visibility: visible;
   }
   to {
-    -webkit-filter: opacity(0%);
-            filter: opacity(0%);
+    filter: opacity(0%);
     visibility: hidden;
-  }
-}
-@-webkit-keyframes appear {
-  from {
-    -webkit-filter: opacity(0%);
-            filter: opacity(0%);
-    visibility: hidden;
-  }
-  to {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
-    visibility: visible;
   }
 }
 @keyframes appear {
   from {
-    -webkit-filter: opacity(0%);
-            filter: opacity(0%);
+    filter: opacity(0%);
     visibility: hidden;
   }
   to {
-    -webkit-filter: opacity(100%);
-            filter: opacity(100%);
+    filter: opacity(100%);
     visibility: visible;
   }
 }
@@ -203,8 +132,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .front {
@@ -215,78 +143,50 @@ body {
 .back {
   background-color: #29b94d;
   color: white;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .easy {
   color: rgb(45, 231, 85);
-  -webkit-transition: -webkit-filter 200ms;
-  transition: -webkit-filter 200ms;
   transition: filter 200ms;
-  transition: filter 200ms, -webkit-filter 200ms;
 }
 
 .medium {
   color: rgb(220, 213, 10);
-  -webkit-transition: -webkit-filter 200ms;
-  transition: -webkit-filter 200ms;
   transition: filter 200ms;
-  transition: filter 200ms, -webkit-filter 200ms;
 }
 
 .hard {
   color: rgb(225, 60, 60);
-  -webkit-transition: -webkit-filter 200ms;
-  transition: -webkit-filter 200ms;
   transition: filter 200ms;
-  transition: filter 200ms, -webkit-filter 200ms;
 }
 
 .easy:hover {
-  -webkit-filter: brightness(85%);
-          filter: brightness(85%);
+  filter: brightness(85%);
 }
 
 .medium:hover {
-  -webkit-filter: brightness(85%);
-          filter: brightness(85%);
+  filter: brightness(85%);
 }
 
 .hard:hover {
-  -webkit-filter: brightness(85%);
-          filter: brightness(85%);
+  filter: brightness(85%);
 }
 
 #difficulty {
   position: absolute;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.46);
   -webkit-text-stroke: 0.01em black;
 }
 #difficulty * {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 #difficulty > *:not(button) {
@@ -339,44 +239,31 @@ input[type=radio]:checked + label {
 
 .victory {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   font-size: 5em;
   visibility: hidden;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 @media only screen and (max-width: 1024px) {
   .card-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 @media only screen and (max-width: 1400px) {
   .restart {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     padding-bottom: 10px;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
   }
   #restartbtn {
     display: inline;
